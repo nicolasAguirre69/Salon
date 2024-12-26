@@ -79,9 +79,8 @@
                 </div>
             </div>                
         </div>
-        <div class="prueba">
-            <h1>prueba</h1>
-        </div>
+        
+        
     </body>
 </html>
 <!-- Bootstrap JavaScript Libraries -->|
