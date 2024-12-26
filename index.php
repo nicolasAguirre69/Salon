@@ -72,15 +72,13 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
-                            <button type="button" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Close </button>
+                            <button type="button" class="btn btn-primary" onclick="agregarEvento()">Save</button>
                         </div>
                     </div>
                 </div>
             </div>                
         </div>
-        
-        
     </body>
 </html>
 <!-- Bootstrap JavaScript Libraries -->|
@@ -96,6 +94,15 @@
     crossorigin="anonymous"
 ></script>
 <script>
+    function agregarEvento(){
+        var evento = new FormData();
+        evento.append("id",document.getElementById('id').value);
+        evento.append("title",document.getElementById('titulo').value);
+        evento.append("descripcion",document.getElementById('descripcion').value);
+        evento.append("color",document.getElementById('color').value);
+        evento.append("fecha",document.getElementById('fecha').value);
+        evento.append("hora",document.getElementById('hora').value);
+    }
     var modalEvento;
     modalEvento= new bootstrap.Modal(document.getElementById('modalEvento'),{keyboard:false});
     document.addEventListener('DOMContentLoaded', function() {
@@ -112,7 +119,8 @@
             // verificamos que en realidad al seleccionar la fecha: 
             // alert("selecciono: "+informacion.dateStr);
             modalEvento.show();
-        }
+        },
+        events:"api.php"
         });
         calendar.render();
     });
