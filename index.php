@@ -102,6 +102,20 @@
         evento.append("color",document.getElementById('color').value);
         evento.append("fecha",document.getElementById('fecha').value);
         evento.append("hora",document.getElementById('hora').value);
+
+        for(var valor of evento.values()){
+            console.log(valor)
+        }
+        fetch("api.php?accion=agregar",{
+        method:"POST",
+        body:evento
+       })
+       .then(data =>{
+        console.log(data);
+       })
+       .cath(error=>{
+        console.log(error);
+       })
     }
     var modalEvento;
     modalEvento= new bootstrap.Modal(document.getElementById('modalEvento'),{keyboard:false});
@@ -117,7 +131,7 @@
         },
         dateClick : function(informacion){
             // verificamos que en realidad al seleccionar la fecha: 
-            // alert("selecciono: "+informacion.dateStr);
+            //alert("selecciono: "+informacion.dateStr);
             modalEvento.show();
         },
         events:"api.php"

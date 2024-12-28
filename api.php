@@ -8,5 +8,6 @@
 
     $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
     print_r(json_encode($resultado));
+    print_r($_POST);
 
 ?>
