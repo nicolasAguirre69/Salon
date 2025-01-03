@@ -24,61 +24,7 @@
     </head>
 
     <body>
-        <div class="container">
-            <!-- div calendario-->
-            <div class="col-md-8 offset-md-2">
-                <div id='calendar'></div>
-            </div> 
-            <!-- Modal Body-->
-            <div class="modal fade" id="modalEvento" tabindex="-1" role="dialog" aria-labelledby="modalTitleId"aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalTitleId">
-                                Ingrese una nueva cita
-                            </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="container-fluid">
-                                <form action="" method="post">
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">ID:</label>
-                                        <input type="text" class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="ID"/>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">titulo</label>
-                                        <input type="text" class="form-control" name="titulo" id="titulo" aria-describedby="helpId"placeholder="titulo"/>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Fecha</label>
-                                        <input type="text" class="form-control" name="fecha" id="fecha" aria-describedby="helpId" placeholder="fecha"/>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Hora</label>
-                                        <input type="time" class="form-control" name="hora" id="hora" aria-describedby="helpId" placeholder="hora"/>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Descripcion</label>
-                                        <textarea class="form-control" name="descripcion" id="descripcion" rows="3"></textarea>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Color</label>
-                                        <input type="color" class="form-control" name="color" id="color" aria-describedby="helpId" placeholder=""></div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" > Close </button>
-                            <button type="button" class="btn btn-primary" onclick="agregarEvento()">Save</button>
-                        </div>
-                    </div>
-                </div>
-            </div>                
-        </div>
+        
     </body>
 </html>
 <!-- Bootstrap JavaScript Libraries -->|
@@ -106,7 +52,7 @@
         for(var valor of evento.values()){
             console.log(valor)
         }
-        fetch("api.php?accion=agregar",{
+        fetch("Conexion/api.php?accion=agregar",{
         method:"POST",
         body:evento
        })
@@ -134,7 +80,7 @@
             //alert("selecciono: "+informacion.dateStr);
             modalEvento.show();
         },
-        events:"api.php"
+        events:"Conexion/api.php"
         });
         calendar.render();
     });
